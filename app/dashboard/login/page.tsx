@@ -10,13 +10,13 @@ export default function LoginPage() {
   const [fout, setFout] = useState('')
   const [laden, setLaden] = useState(false)
   const router = useRouter()
-  const supabase = createClient()
 
   async function handleInloggen(e: React.FormEvent) {
     e.preventDefault()
     setLaden(true)
     setFout('')
 
+    const supabase = createClient()
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password: wachtwoord,
@@ -33,23 +33,37 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#0a1628' }}>
-      <div className="w-full max-w-md">
-        {/* Logo / Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-white tracking-tight">
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#0a1628',
+      fontFamily: 'Inter, sans-serif'
+    }}>
+      <div style={{ width: '100%', maxWidth: '400px', padding: '0 20px' }}>
+        {/* Logo */}
+        <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <h1 style={{ fontSize: '28px', fontWeight: 700, color: '#ffffff', letterSpacing: '-0.5px' }}>
             Exeris
           </h1>
-          <p className="text-gray-400 mt-2 text-sm">Intern Dashboard</p>
+          <p style={{ color: '#6b7280', marginTop: '6px', fontSize: '14px' }}>Intern Dashboard</p>
         </div>
 
-        {/* Login kaart */}
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
-          <h2 className="text-xl font-semibold text-white mb-6">Inloggen</h2>
+        {/* Card */}
+        <div style={{
+          background: 'rgba(255,255,255,0.06)',
+          border: '1px solid rgba(255,255,255,0.1)',
+          borderRadius: '16px',
+          padding: '32px'
+        }}>
+          <h2 style={{ fontSize: '18px', fontWeight: 600, color: '#ffffff', marginBottom: '24px' }}>
+            Inloggen
+          </h2>
 
-          <form onSubmit={handleInloggen} className="space-y-5">
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1.5">
+          <form onSubmit={handleInloggen}>
+            <div style={{ marginBottom: '16px' }}>
+              <label style={{ display: 'block', fontSize: '13px', fontWeight: 500, color: '#d1d5db', marginBottom: '6px' }}>
                 E-mailadres
               </label>
               <input
@@ -57,13 +71,23 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition"
                 placeholder="naam@exeris.nl"
+                style={{
+                  width: '100%',
+                  padding: '10px 14px',
+                  borderRadius: '8px',
+                  background: 'rgba(255,255,255,0.08)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  color: '#ffffff',
+                  fontSize: '14px',
+                  outline: 'none',
+                  boxSizing: 'border-box'
+                }}
               />
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1.5">
+            <div style={{ marginBottom: '20px' }}>
+              <label style={{ display: 'block', fontSize: '13px', fontWeight: 500, color: '#d1d5db', marginBottom: '6px' }}>
                 Wachtwoord
               </label>
               <input
@@ -71,29 +95,54 @@ export default function LoginPage() {
                 value={wachtwoord}
                 onChange={(e) => setWachtwoord(e.target.value)}
                 required
-                className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition"
                 placeholder="••••••••"
+                style={{
+                  width: '100%',
+                  padding: '10px 14px',
+                  borderRadius: '8px',
+                  background: 'rgba(255,255,255,0.08)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  color: '#ffffff',
+                  fontSize: '14px',
+                  outline: 'none',
+                  boxSizing: 'border-box'
+                }}
               />
             </div>
 
             {fout && (
-              <div className="bg-red-500/10 border border-red-500/30 rounded-lg px-4 py-3">
-                <p className="text-red-400 text-sm">{fout}</p>
+              <div style={{
+                background: 'rgba(239,68,68,0.1)',
+                border: '1px solid rgba(239,68,68,0.3)',
+                borderRadius: '8px',
+                padding: '10px 14px',
+                marginBottom: '16px'
+              }}>
+                <p style={{ color: '#f87171', fontSize: '13px', margin: 0 }}>{fout}</p>
               </div>
             )}
 
             <button
               type="submit"
               disabled={laden}
-              className="w-full py-3 px-4 rounded-lg font-semibold text-white transition-all"
-              style={{ backgroundColor: laden ? '#065f46' : '#059669' }}
+              style={{
+                width: '100%',
+                padding: '11px',
+                borderRadius: '8px',
+                background: laden ? '#065f46' : '#059669',
+                color: '#ffffff',
+                fontWeight: 600,
+                fontSize: '14px',
+                border: 'none',
+                cursor: laden ? 'not-allowed' : 'pointer'
+              }}
             >
-              {laden ? 'Bezig met inloggen...' : 'Inloggen'}
+              {laden ? 'Bezig...' : 'Inloggen'}
             </button>
           </form>
         </div>
 
-        <p className="text-center text-gray-600 text-xs mt-6">
+        <p style={{ textAlign: 'center', color: '#374151', fontSize: '12px', marginTop: '24px' }}>
           © {new Date().getFullYear()} Exeris Uitzendbureau
         </p>
       </div>
