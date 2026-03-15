@@ -1,4 +1,3 @@
-import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import DashboardSidebar from '@/components/dashboard/Sidebar'
 
@@ -10,9 +9,8 @@ export default async function DashboardLayout({
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
-  if (!user) {
-    redirect('/dashboard/login')
-  }
+  // Proxy (middleware) handelt de redirect af — hier alleen renderen
+  if (!user) return null
 
   return (
     <div className="flex h-screen overflow-hidden" style={{ backgroundColor: '#f1f5f9' }}>
