@@ -1,29 +1,31 @@
-"use client";
-import { useState } from "react";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Stats from "@/components/Stats";
-import Services from "@/components/Services";
-import About from "@/components/About";
-import Testimonials from "@/components/Testimonials";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import Chatbot from "@/components/Chatbot";
+import { Navbar } from '@/components/layout/Navbar'
+import { Footer } from '@/components/layout/Footer'
+import { Hero } from '@/components/sections/Hero'
+import { TrustBar } from '@/components/sections/TrustBar'
+import { Stats } from '@/components/sections/Stats'
+import { Sectors } from '@/components/sections/Sectors'
+import { HowItWorks } from '@/components/sections/HowItWorks'
+import { Testimonials } from '@/components/sections/Testimonials'
+import { SplitCTA } from '@/components/sections/SplitCTA'
+import { ContactForm } from '@/components/sections/ContactForm'
 
 export default function Home() {
-  const [lang, setLang] = useState<"nl" | "en">("nl");
-
   return (
     <main>
-      <Navbar lang={lang} setLang={setLang} />
-      <Hero lang={lang} />
-      <Stats lang={lang} />
-      <Services lang={lang} />
-      <About lang={lang} />
-      <Testimonials lang={lang} />
-      <Contact lang={lang} />
-      <Footer lang={lang} />
-      <Chatbot lang={lang} />
+      <Navbar />
+      <Hero />
+      <TrustBar />
+      <Stats />
+      <Sectors />
+      <HowItWorks />
+      <Testimonials />
+      <SplitCTA />
+      <section className="py-20 bg-[#0A1020]">
+        <div className="max-w-7xl mx-auto px-6">
+          <ContactForm />
+        </div>
+      </section>
+      <Footer />
     </main>
-  );
+  )
 }
