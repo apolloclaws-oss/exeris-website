@@ -11,6 +11,7 @@ function AnimatedCounter({ target, suffix = '' }: { target: number, suffix?: str
   const shouldReduce = useReducedMotion()
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!isInView || shouldReduce) { setCount(target); return }
     let start = 0
     const duration = 2000

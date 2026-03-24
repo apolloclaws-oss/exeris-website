@@ -28,7 +28,7 @@ export function Testimonials() {
               }`}
             >
               <div className="bg-[#0F1729] border border-white/[0.06] rounded-2xl p-8 md:p-10 text-center">
-                <div className="text-5xl text-[#00E676]/20 font-[family-name:var(--font-bricolage)] mb-4">"</div>
+                <div className="text-5xl text-[#00E676]/20 font-[family-name:var(--font-bricolage)] mb-4">&ldquo;</div>
                 <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-6 max-w-3xl mx-auto">
                   {item.quote}
                 </p>
