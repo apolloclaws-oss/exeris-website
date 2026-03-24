@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none" aria-label="Exeris">
+  <!-- Icon: stylised E with orange/yellow flame accent -->
+  <g>
+    <!-- Black drop shadow / depth -->
+    <rect x="2.5" y="3.5" width="26" height="33" rx="3" fill="black" opacity="0.35"/>
+    <!-- White card -->
+    <rect x="1" y="2" width="26" height="33" rx="3" fill="white"/>
+    <!-- E bars with orange-yellow gradient -->
+    <defs>
+      <linearGradient id="eg" x1="5" y1="8" x2="23" y2="30" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#F59E0B"/>
+        <stop offset="100%" stop-color="#F97316"/>
+      </linearGradient>
+    </defs>
+    <!-- Top bar -->
+    <rect x="6" y="9" width="15" height="3.5" rx="1.5" fill="url(#eg)"/>
+    <!-- Middle bar (shorter) -->
+    <rect x="6" y="17.25" width="11" height="3.5" rx="1.5" fill="url(#eg)"/>
+    <!-- Bottom bar -->
+    <rect x="6" y="25.5" width="15" height="3.5" rx="1.5" fill="url(#eg)"/>
+    <!-- Left stem -->
+    <rect x="6" y="9" width="3.5" height="20" rx="1.5" fill="url(#eg)"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="35" y="28" font-family="'Bricolage Grotesque', 'Inter', system-ui, sans-serif" font-size="20" font-weight="700" letter-spacing="-0.5" fill="white">exeris</text>
+</svg>
